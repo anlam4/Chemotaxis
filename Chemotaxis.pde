@@ -1,4 +1,4 @@
-Bacteria[] colony = new Bacteria[2];  //Still need to decide size of array
+Bacteria[] colony = new Bacteria[5]; 
  void setup()   
  {     
      size(600,600);
@@ -9,11 +9,20 @@ Bacteria[] colony = new Bacteria[2];  //Still need to decide size of array
  }   
  void draw()   
  {    
-     for(i = 0; i < colony.length; i++)
+     walker(colony);
+     if(colony[i].counter % 200 == 0)
      {
-        colony[i].show();
+        Bacteria[] offspring
      }
  }  
+ void walker(Bacteria[] culture)  //cylcles through any array
+ {
+     for(i = 0; i < culture.length; i++)
+     {
+        culture[i].show();
+        culture[i].move();
+     }
+ }
  class Bacteria    
  {
     int x, y, myColor;
@@ -26,5 +35,10 @@ Bacteria[] colony = new Bacteria[2];  //Still need to decide size of array
     void show()
     {
        ellipse();
+    }
+    Bacteria reproduce() //new bacteria has same prop
+    {
+       Bacteria sisterCell = new Bacteria(x,y,myColor);
+       return sisterCell;
     }
  }    
