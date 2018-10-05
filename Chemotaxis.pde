@@ -1,4 +1,4 @@
-Bacteria[] colony = new Bacteria[320]; 
+Bacteria[] colony = new Bacteria[160]; 
 int population = 5;
  void setup()   
  {     
@@ -10,18 +10,24 @@ int population = 5;
  }   
  void draw()   
  {   
+   while(population < 161)  //Stops reproduction when there are 160 bacteria
+   {
      int counter = 0;
      while(counter <= 200)
      {
         for(i = 0; i < population; i++)
         {
-           culture[i].show();
-           culture[i].move();
+           colony[i].show();
+           colony[i].move();
         }
         counter = counter + 1;
      }
-     
-     Bacteria[] offspring
+     for(i = population; i < population*2; i++)  //Continues adding to array
+     {
+        colony[i] = new Bacteria(colony[i-population].x,colony[i-population].y);
+     }
+     population = population * 2;
+   }
  } 
  class Bacteria    
  {
@@ -38,10 +44,5 @@ int population = 5;
     }
     void move()
     {
-    }
-    Bacteria reproduce() //new bacteria has same prop
-    {
-       Bacteria sisterCell = new Bacteria(x,y,myColor);
-       return sisterCell;
     }
  }    
