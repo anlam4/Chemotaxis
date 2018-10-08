@@ -8,10 +8,10 @@ int population = 5;
         colony[i] = new Bacteria(300,300);
      }
  }   
- void draw()   
- {   
-   while(population < 161)  //Stops reproduction when there are 160 bacteria
-   {
+ while(population < 161)
+ {
+   void draw()   
+   {   
      int counter = 0;
      while(counter <= 200)
      {
@@ -26,9 +26,9 @@ int population = 5;
      {
         colony[i] = new Bacteria(colony[i-population].x,colony[i-population].y);
      }
-     population = population * 2;
-   }
- } 
+     population = population * 2;  //Sets population number of objects in array
+   } 
+ }
  class Bacteria    
  {
     int x, y, myColor;
@@ -40,7 +40,7 @@ int population = 5;
     }
     void show()
     {
-       ellipse();
+       ellipse(x,y,20,40);
     }
     void move()
     {
