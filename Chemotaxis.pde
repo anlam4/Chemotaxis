@@ -33,7 +33,6 @@ void draw()
       colony[i] = new Bacteria(newX, newY, rgb);
     }
     population = population * 2;  //Sets population number of objects in array
-    System.out.println(counter);
     counter = 0;
   }
 }
